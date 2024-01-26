@@ -1,0 +1,17 @@
+.bx
+{
+    height: 10rem;
+    width: 100%;
+    background-color: white;
+    border: solid rgba(16, 13, 13, 0.743) 2px;
+    display: inline-block;
+}
+.smbx
+{
+    height: 20%;
+    width: 20%;
+    display: inline-block;
+    text-align: center;
+    background-color:green;
+    border: solid black 1px;
+}
