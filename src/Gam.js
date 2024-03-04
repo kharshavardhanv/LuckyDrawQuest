@@ -37,7 +37,7 @@ export default function Gam(props) {
       </div>
       <button onClick={roll}>Roll Die</button>
       <br/>
-      {chk()==true?<span className='smbx' style={{height:"5rem",width:"100%", fontSize:"50px"}}>!!!YOU WON</span>:""}
+      {chk()===true?<span className='smbx' style={{height:"5rem",width:"100%", fontSize:"50px"}}>!!!YOU WON</span>:""}
     </div>
   )
 }
