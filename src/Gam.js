@@ -1,43 +1,34 @@
 import React, { useState } from 'react';
 import './Gamy.css';
+
 export default function Gam(props) {
-    const [die,setdi]=useState(Array.from({length:props.num}));
-    const chk=()=>
-    {
-        let sum=0;
-        die.map(e=>
-            {
-                sum+=e
-                return e;
-            })
-        return sum===props.n;
-    }
-    const roll=()=>
-    {
-         setdi(prdie=>
-            {
-            return  prdie.map(e=>(e=getran()));
-        })
-    }
-    const getran=()=>
-    {
-        return Math.floor(Math.random()*props.n);
-    }
+  const getran = () => {
+    return Math.floor(Math.random() * props.n);
+  };
+
+  const [die, setDie] = useState(Array.from({ length: props.num }, () => getran()));
+
+  const chk = () => {
+    const sum = die.reduce((acc, cur) => acc + cur, 0);
+    return sum === parseInt(props.n);
+  };
+  
+
+  const roll = () => {
+    setDie(Array.from({ length: props.num }, () => getran()));
+  };
 
   return (
     <div>
-        <span style={{fontSize:"70px"}}>Lucky{props.n}</span>
+      <span style={{ fontSize: "70px" }}>Lucky{props.n}</span>
       <div className="bx">
-        { 
-            die.map((e,idx)=>
-                {
-                   return <span key={idx} className='smbx' style={{alignContent:"center"}}>{e}</span>
-                })
-        }
+        {die.map((e, idx) => (
+          <span key={idx} className='smbx' style={{ alignContent: "center" }}>{e}</span>
+        ))}
       </div>
       <button onClick={roll}>Roll Die</button>
-      <br/>
-      {chk()===true?<span className='smbx' style={{height:"5rem",width:"100%", fontSize:"50px"}}>!!!YOU WON</span>:""}
+      <br />
+      {chk() ? <span className='smbx' style={{ height: "5rem", width: "100%", fontSize: "50px" }}>!!!YOU WON</span> : null}
     </div>
-  )
+  );
 }
